@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Basics</title>
+</head>
+
+<style>
+    [v-cloak]{
+        display: none;
+    }
+
+    input{
+        display: block;
+        color: red;
+        border: 4px solid  blue;
+        margin: 2rem 0;
+        height: 2rem;
+    }
+</style>
+<body>
+    <div id="app" v-cloak>
+        <custom-form/>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" >
+        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        let app = createApp({
+                setup(){
+
+                }
+            }
+        )
+
+        app.component("custom-form", {
+            template:`
+            <form @submit.prevent = "handleSubmit">
+                <h2>{{ title }}</h2>
+                <custom-input label="Email"/>
+                <custom-input label="Password"/>
+                <button>Submit</button>
+            </form>
+            `,
+            
+            setup(){
+                const title = ref("Login Form");
+                const email = ref("");
+                const password = ref("");
+                const handleSubmit = ()=>{
+                    console.log(email.value,password.value);
+                }
+                return{
+                    title,email,password,handleSubmit
+                }
+
+            }
+        })
+
+        app.component("custom-input",{
+            template: `
+            <label>
+                {{ label }}
+                <input type = "text" v-model="">
+            </label>
+        `,
+        props:["label"],
+
+        })
+
+        app.mount("#app")
+    </script>
+</body>
+</html>
