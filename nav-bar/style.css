@@ -1,0 +1,636 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+    scroll-behavior: smooth;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+[v-cloak]{
+    display: none;
+}
+
+:root{
+    --bg-color: #fff;
+    --sec-bg: #0000000c;
+    --text-color:rgba(30, 30, 30,0.8);
+    --special-color: #3a7bfe;
+    --link-hover-color: #3a7bfebb;
+    --special-font: Montserrat, sans-serif;
+    --dark-headings:#1e1e1ee0;
+    --primary-font: Poppins, sans-serif;
+
+}
+
+button{
+    box-shadow: none;
+    border: 3px solid var(--bg-color);
+    box-shadow: none;
+    outline: none;
+}
+.nav-wrapper{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    background-color: var(--bg-color);
+    z-index: 6;
+    
+}
+
+.flex-center-vertical{
+    display: flex;
+    align-items: center;
+}
+
+.flex-center-horizontal{
+    justify-content: center;
+}
+
+.flex-row{
+    flex-direction: row;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+.hamburger-btn{
+    margin: 0 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.hamburger-btn svg{
+    background-color: transparent;
+    fill: var(--text-color);
+    filter: none;
+    -webkit-filter: none;
+    box-shadow: none;
+}
+
+.hamburger-btn .line{
+    transition:
+    y 200ms ease-in-out 200ms,
+    rotate 200ms ease-in,
+    opacity 0ms 200ms;
+    transform-origin: center;
+}
+
+.hamburger-btn[aria-expanded = "true"] .line{
+    transition:
+        y 200ms ease-in-out,
+        rotate 200ms ease-in 200ms,
+        opacity 0ms 200ms;
+}
+
+
+
+.hamburger-btn[aria-expanded = "true"] :is(.top,.middle,.bottom){
+    y: 45;
+}
+.hamburger-btn[aria-expanded = "true"] .top{
+   rotate:45deg;
+}
+.hamburger-btn[aria-expanded = "true"] .bottom{
+    rotate:-45deg;
+    width: 80%;
+ }
+
+ .hamburger-btn[aria-expanded = "true"] .middle{
+    opacity: 0;
+ }
+
+ .appName{
+    background: transparent;
+    margin: 0 1rem;
+ }
+ .appName img{
+    width: 3rem;
+    height: 3rem;
+    background: transparent
+ }
+
+ .big-screen-logo,.menu-elements-big-screen{
+    display: none;
+ }
+
+ .menu{
+    position: absolute;
+    z-index: 5;
+    top: 5rem;
+    right: 0;
+    background-color: var(--bg-color);
+    width: 100%;
+    max-height: 20rem;
+    justify-content: space-evenly;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    transition: height 200ms ease-in-out ;
+    -webkit-transition: height 200ms ease-in-out ;
+    -moz-transition: height 200ms ease-in-out ;
+    -ms-transition: height 200ms ease-in-out ;
+    -o-transition: height 200ms ease-in-out ;
+    height: 0;
+    
+}
+
+.login-bs{
+    display: none;
+}
+
+ .menu a{
+    text-decoration: none;
+    font-family: var(--special-font);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    font-weight: 500;
+}
+
+.menu-elements,.menu-elements-big-screen{
+    background-color: #fff;
+    padding: 0 0.5rem;
+    font-size: large;
+    color: var(--special-color);
+    transition:color 150ms ease-in-out;
+    -webkit-transition:color 150ms ease-in-out;
+    -moz-transition:color 150ms ease-in-out;
+    -ms-transition:color 150ms ease-in-out;
+    -o-transition:color 150ms ease-in-out;
+}
+
+.menu-elements:hover,.menu-elements-big-screen:hover{
+    color: var(--link-hover-color);
+}
+
+
+
+.login{
+    background-color: var(--special-color);
+    width: 5rem;
+    color: var(--bg-color);
+    text-align: center;
+    padding: 0.4rem 0;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+}
+
+.heroPage{
+    height: calc(100vh - 7rem);
+    background: var(--special-color);
+    background: linear-gradient(90deg, hsla(220, 99%, 61%, 1) 0%, hsla(233, 84%, 35%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(220, 99%, 61%, 1) 0%, hsla(233, 84%, 35%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(220, 99%, 61%, 1) 0%, hsla(233, 84%, 35%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3A7BFE", endColorstr="#0E1FA5", GradientType=1 );
+    padding: 0 1rem; 
+    position: relative;
+}
+
+.heroPage-wrapper{
+    background-color: transparent;
+    padding: 3rem 0 2rem 0;
+    position: relative;
+    gap: 1rem;
+}
+
+.big-text{
+    background-color: transparent;
+    font-family: var(--primary-font);
+    font-size: 1.85rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+    color: var(--bg-color);
+    text-align: center;
+}
+
+.small-text{
+    background-color: transparent;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: large;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+
+.heroPage-wrapper :is(.big-text,.small-text),.small-text span,.big-text span{
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.small-text .svg-blob-small-text{
+    left: 50%;
+}
+
+.svg-blob,.svg-blob-small-text{
+    background-color:transparent;
+    width: 5rem;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    z-index: 1;
+}
+
+.pricing{
+    padding: 2rem 0 0 0;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.pricing button, .steps-to-create-account-btns button{
+    border: 1px solid var(--bg-color);
+    width: 15rem;
+    height: 3.5rem;
+    font-family: var(--primary-font);
+    font-size: large;
+    border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+    font-weight: 500;
+    transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+}
+
+
+.createAccount{
+    background-color: #fff;
+    color: var(--text-color);
+}
+
+.price-btn{
+    color: var(--bg-color);
+}
+
+.pricing button:hover{
+    transform: scale(1.05);
+}
+
+
+
+
+
+.banner-img, .banner-img img{
+    width: 90%;
+    position: relative;
+}
+
+.summarized-features{
+    padding: 7rem 1rem 1rem 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.feature-icon{
+    background-color: transparent;
+    fill: transparent;
+}
+.summarized-features h2{
+    font-family: var(--primary-font);
+    color: var(--dark-headings);
+    font-size: x-large;
+    font-weight: bold;
+    line-height: 2.5rem;
+    padding: 1rem 0;
+}
+
+.summarized-features span{
+    color: var(--text-color);
+    font-family: var(--primary-font);
+}
+
+.listedFeatures {
+    padding: 2rem 0;
+}
+.listedFeatures h2{
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.feature{
+    padding: 1rem 0;
+}
+.features-btn{
+    margin: 2rem 0;
+    
+}
+
+.features-btn a {
+    display: block;
+    text-decoration: none;
+    font-family: var(--special-font);
+    font-size: large;
+    color: var(--bg-color);
+    background-color: var(--link-hover-color);
+    min-width: 15rem;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    font-weight: 500;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+}
+.features-btn a:hover{
+    background-color: var(--special-color);
+    transition: all 150ms ease-in-out;
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+}
+
+.more-features-box{
+    display: none;
+    opacity: 0;
+    visibility: 0;
+    transition: all 200ms ease-in-out ;
+    -webkit-transition: all 200ms ease-in-out ;
+    -moz-transition: all 200ms ease-in-out ;
+    -ms-transition: all 200ms ease-in-out ;
+    -o-transition: all 200ms ease-in-out ;
+}
+
+.login-bs:hover{
+    transition: all 150ms ease-in-out;
+    background-color: var(--link-hover-color);
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+}
+
+.application-interface{
+    width: 100%;
+    position: relative;
+    background-color: var(--sec-bg);
+    padding: 2rem 1rem;
+    border-top: 1px solid #eee;
+}
+
+.application-interface img{
+    width: 80%;
+    padding: 0;
+    margin: 0;
+}
+
+.application-interface span{
+    font-family: var(--primary-font);
+    color: var(--dark-headings);
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.customers,.try-our-app{
+    padding: 5rem 1rem;
+    background-color: var(--special-color);
+}
+
+.users-container{
+    padding: 2rem 0;
+    gap: 1rem;
+}
+
+.user{
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    padding: 1rem;
+    font-family: var(--primary-font);
+    color: var(--text-color);
+}
+
+.heading h2{
+    color: var(--bg-color);
+    font-family: var(--primary-font);
+    text-align: center;
+    font-size: x-large;
+    padding: 1rem 0;
+}
+
+.user .img_name{
+    padding: 1rem 0;
+    gap: 0.5rem;
+}
+
+.nameAndCompany{
+    gap: 0.05rem;
+}
+
+.user .img_name h3{
+    font-weight: 500;
+    font-size: large;
+}
+.user .img_name img{
+    width: 3rem;
+    height: 3rem;
+}
+.user .img_name span{
+    font-size: small;
+}
+
+.try-our-app h2{
+    font-family: var(--primary-font);
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: center;
+    color: var(--bg-color);
+
+}
+
+.steps-to-create-account{
+    padding: 5rem 1rem;
+    background-color: var(--sec-bg);
+    font-family: var(--primary-font);
+    text-align: center;
+    gap: 1rem;
+}
+
+.steps-to-create-account a{
+    color: var(--special-color);
+}
+
+.steps-to-create-account :not(h3,a,button){
+    color: var(--dark-headings);
+}
+
+
+.steps-to-create-account-btns{
+    gap: 1rem;
+}
+
+.create-acc-2{
+    background-color: var(--special-color);
+    color: var(--bg-color);
+    margin: 0.5rem 0;
+}
+
+.money-stuff{
+    border: 1px solid var(--text-color)!important;
+    margin: 0.5rem 0;
+}
+
+
+
+@media screen and (max-height: 700px) {
+    .heroPage{
+        height: calc(125vh - 5rem);
+    }
+}
+
+@media screen and (max-height: 800px) and (min-height: 701px){
+    .heroPage{
+        height: calc(115vh - 5rem);
+    }
+}
+
+@media screen and (min-width: 600px){
+
+    .listedFeatures,.users-container{
+        display: grid;
+    }
+    .listedFeatures,.more-features-box,.users-container{
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+    }
+
+    .feature{
+        max-width: 25rem;
+    }
+    .user{
+        max-width: 20rem;
+    }
+    .users-container{
+        gap: 2rem;
+    }
+
+}
+
+@media screen and (min-width: 1000px){
+
+    .nav-wrapper{
+        padding: 0 3rem;
+    }
+
+    .small-screen-logo{
+        display: none;
+    }
+
+    .big-screen-logo,.menu-elements-big-screen,.login-bs{
+        display: block;
+    }
+
+
+    .menu-box{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .login-bs{
+        text-decoration: none;
+        font-family: var(--primary-font);
+        padding: 0.4rem 0;
+        text-align: center;
+        width: 10%;
+        min-width: 6rem;
+        max-width: 10rem;
+    }
+
+    .menu-elements-big-screen{
+        text-decoration: none;
+        font-family: var(--primary-font);
+        font-size: 1.25rem;
+        padding: 0 1.2rem;
+    }
+
+    .hamburger-btn{
+        display: none;
+    }
+    .appName img{
+        width: auto;
+     }
+
+    .heroPage{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: calc(100vh - 8rem);
+    }
+
+    .big-text{
+        font-size: 3rem;
+        line-height: 3.5rem;
+        max-width: 40rem;
+    }
+
+    .small-text{
+        font-size: 1.25rem;
+        padding: 0 2rem;
+    }
+
+    .pricing{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .listedFeatures,.more-features-box,.users-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+}
+
+
+
+
