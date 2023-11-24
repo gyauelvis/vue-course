@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <style>
+        body{
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <notification-message class-name="error" header="Oh no!">
+            <p>Go to your <b>special offers</b> page to see now.</p>
+        </notification-message>
+    </div>
+</body>
+
+<script id="notification-message-template" type="text/x-template">
+
+    <div class="ui message" :class="className" v-if="shown">
+        <i class="close icon" @click = "hide"></i>
+        <div class="header">
+          {{header}}
+        </div>
+        <slot></slot>
+      </div>
+
+</script>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="app3.js"></script>
+
+
+</html>

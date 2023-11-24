@@ -23,9 +23,9 @@
 }
 
 
-[v-cloak]{
+/* [v-cloak]{
     display: none;
-}
+} */
 
 :root{
     --bg-color: #fff;
