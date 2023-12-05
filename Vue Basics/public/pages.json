@@ -1,0 +1,14 @@
+[
+    {
+        "paragraph": "Welcome to the home page",
+        "navLinks": { "text": "Home", "url": "home.html" }
+    },
+    {
+        "paragraph": "Welcome to the features page",
+        "navLinks": { "text": "Features", "url": "features.html" }
+    },
+    {
+        "paragraph": "Welcome to the pricing page",
+        "navLinks": { "text": "Pricing", "url": "pricing.html" }
+    }
+]

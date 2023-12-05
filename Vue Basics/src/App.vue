@@ -1,37 +1,31 @@
 <script setup>
 import PageViewer from './components/PageViewer.vue'
 import NavBar from './components/NavBar.vue'
-import { ref } from 'vue';
+import {  onBeforeMount, ref } from 'vue';
+
+let fetchPages = async() =>{
+    let res = await fetch('pages.json');
+    let data = await res.json();
+    return data;
+}
 
 const active = ref(0);
 const page = ref({
-    pages: [
-        {
-            paragraph: "Welcome to the home page",
-            navLinks: { text: "Home", url: "home.html" },
-        },
-        {
-            paragraph: "Welcome to the features page",
-            navLinks: { text: "Features", url: "features.html" },
-        },
-        {
-            paragraph: "Welcome to the pricing page",
-            navLinks: { text: "Pricing", url: "pricing.html" },
-        },
-    ],
+    pages: []
 })
 
 let indexChange = (index) => {
     active.value = index;
 }
 
-
+onBeforeMount(async()=>{
+    page.value.pages = await fetchPages();
+    console.log(page.value.pages)
+})
 </script>
 
 
 <template>
     <nav-bar :pages="page.pages" :active-page="active" @indexChange = "indexChange" />
-    <page-viewer :page="page.pages[active]"/>
+    <page-viewer v-if="page.pages.length > 0" :page="page.pages[active]"/>
 </template>
-
-<style scoped></style>

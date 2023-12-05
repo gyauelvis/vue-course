@@ -10,8 +10,11 @@
                 <ul class="navbar-nav">
                     <li class="nav-item" v-for="(page, index) in pages">
                         <a class="nav-link" aria-current="page" :href="page.navLinks.url" :key="index"
-                            @click.prevent="emitIndexChange(index)" :class="{ 'active': index == activePage }">{{ page.navLinks.text }}</a>
+                            @click.prevent="emitIndexChange(index)" :class="{ 'active': index == activePage }">
+                            {{ page.navLinks.text }}
+                        </a>
                     </li>
+                    <button class="primary primary-btn" @click="toggleTheme">Toggle</button>
                 </ul>
             </div>
         </div>
@@ -20,26 +23,43 @@
 
 <script setup>
 
-import { ref } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 const theme = ref('dark');
 
+let toggleTheme = ()=>{
+    if(theme.value === 'dark'){
+        theme.value = 'light'
+    }else{
+        theme.value = 'dark'
+    }
+    setThemeSetting();
+}
+
 const props = defineProps({
-    pages:{
+    pages: {
         type: Object,
-        required: true,
+        required: true
     },
-    activePage:{
+    activePage: {
         type: Number,
         required: true,
     }
 })
-
 const emit = defineEmits(['indexChange']);
-
-let emitIndexChange = (index)=>{
+let emitIndexChange = (index) => {
     emit('indexChange', index);
 }
 
-</script>
+let setThemeSetting = () => localStorage.setItem('theme',theme.value);
+let getThemeSetting = ()=>{
+    let themeSetting = localStorage.getItem('theme');
+    if (themeSetting){
+        theme.value = themeSetting;
+    }
+};
 
-<style></style>
+onBeforeMount(()=>{
+    getThemeSetting();
+})
+
+</script>
